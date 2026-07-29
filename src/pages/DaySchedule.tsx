@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase'
 import { getDaySchedule, formatTime, formatDuration, getTopicTypeBadge } from '../data/schedule'
 import type { ProblemAttempt, StudySession } from '../types'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 
 const PHASE_GRADIENTS: Record<number, string> = {
   1: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
@@ -64,9 +65,12 @@ export default function DaySchedule() {
           </button>
           <div className="topbar-title">Day {day} — {schedule.date}</div>
         </div>
-        <div className="day-pill">
-          <Calendar size={14} />
-          Phase {schedule.phase}: {schedule.phaseName}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="day-pill">
+            <Calendar size={14} />
+            Phase {schedule.phase}: {schedule.phaseName}
+          </div>
+          <DayNightIcon />
         </div>
       </div>
 

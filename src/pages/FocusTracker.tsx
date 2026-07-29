@@ -3,6 +3,7 @@ import { Eye, EyeOff, Play, Square, Camera, TriangleAlert as AlertTriangle, Circ
 import { supabase } from '../lib/supabase'
 import { getTodayDayNumber, formatDuration } from '../data/schedule'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 
 export default function FocusTracker() {
   const todayDay = getTodayDayNumber()
@@ -113,7 +114,10 @@ export default function FocusTracker() {
       <NotificationToast />
       <div className="topbar">
         <div className="topbar-title">AI Focus Tracker</div>
-        <div className="day-pill"><Eye size={14} /> Day {todayDay}</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="day-pill"><Eye size={14} /> Day {todayDay}</div>
+          <DayNightIcon />
+        </div>
       </div>
 
       <div className="content-area">

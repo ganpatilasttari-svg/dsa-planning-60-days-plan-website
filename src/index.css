@@ -717,6 +717,23 @@ select.input { cursor: pointer; }
 .text-pink { color: var(--pink-bright); }
 .text-cyan { color: var(--cyan-bright); }
 
+/* ===== DAY/NIGHT ICON ===== */
+.day-night-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,184,0,0.15), rgba(0,229,255,0.1));
+  border: 1px solid var(--border-bright);
+  color: var(--amber-bright);
+  flex-shrink: 0;
+  transition: all var(--transition);
+  box-shadow: 0 0 12px rgba(255,184,0,0.2);
+}
+.day-night-icon:hover {
+  transform: scale(1.15) rotate(15deg);
+  box-shadow: 0 0 24px rgba(255,184,0,0.4);
+}
+.day-night-icon svg { filter: drop-shadow(0 0 6px currentColor); }
+
 /* ===== CAMERA IN EDITOR ===== */
 .editor-camera-panel {
   position: absolute; top: 12px; right: 12px;

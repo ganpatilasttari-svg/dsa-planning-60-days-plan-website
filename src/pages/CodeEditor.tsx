@@ -6,6 +6,7 @@ import { supabase } from '../lib/supabase'
 import { getDaySchedule, formatDuration, getTopicTypeBadge } from '../data/schedule'
 import type { ProblemAttempt } from '../types'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 import { runCodeWithValidation, type TestResult } from '../lib/codeRunner'
 
 export default function CodeEditor() {
@@ -194,6 +195,7 @@ export default function CodeEditor() {
           <div className="timer-display">
             <Clock size={16} /> {formatDuration(elapsedSeconds)}
           </div>
+          <DayNightIcon />
         </div>
       </div>
 

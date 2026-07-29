@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase'
 import { formatDuration, getTodayDayNumber, PHASES, getAllDays, getTopicTypeBadge } from '../data/schedule'
 import type { ProblemAttempt, FocusLog, StudySession } from '../types'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 
 export default function Analytics() {
   const [attempts, setAttempts] = useState<ProblemAttempt[]>([])
@@ -49,7 +50,10 @@ export default function Analytics() {
       <NotificationToast />
       <div className="topbar">
         <div className="topbar-title">Analytics</div>
-        <div className="day-pill"><BarChart3 size={14} /> Day {todayDay} of 55</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="day-pill"><BarChart3 size={14} /> Day {todayDay} of 55</div>
+          <DayNightIcon />
+        </div>
       </div>
 
       <div className="content-area">

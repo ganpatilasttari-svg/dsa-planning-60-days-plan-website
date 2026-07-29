@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase'
 import { getTodayDayNumber, getDaySchedule, formatDuration, PHASES, getTopicTypeBadge } from '../data/schedule'
 import type { ProblemAttempt, FocusLog, WeakTopic } from '../types'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 
 export default function Dashboard() {
   const navigate = useNavigate()
@@ -58,6 +59,7 @@ export default function Dashboard() {
             <Flame size={14} className="flame" />
             Day {todayDay} / 55
           </div>
+          <DayNightIcon />
         </div>
       </div>
       <div className="content-area">

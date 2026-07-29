@@ -5,6 +5,7 @@ import { getAllDays, getTodayDayNumber, PHASES, getTopicTypeBadge } from '../dat
 import { supabase } from '../lib/supabase'
 import type { ProblemAttempt } from '../types'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 
 export default function Overview() {
   const navigate = useNavigate()
@@ -30,7 +31,10 @@ export default function Overview() {
       <NotificationToast />
       <div className="topbar">
         <div className="topbar-title">55-Day Plan Overview</div>
-        <div className="day-pill"><Target size={14} /> Day {todayDay} of 55</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="day-pill"><Target size={14} /> Day {todayDay} of 55</div>
+          <DayNightIcon />
+        </div>
       </div>
 
       <div className="content-area">

@@ -3,6 +3,7 @@ import { Plus, CircleAlert as AlertCircle, CircleCheck as CheckCircle, Bell, Bel
 import { supabase } from '../lib/supabase'
 import type { WeakTopic } from '../types'
 import NotificationToast from '../components/NotificationToast'
+import DayNightIcon from '../components/DayNightIcon'
 
 export default function WeakTopics() {
   const [topics, setTopics] = useState<WeakTopic[]>([])
@@ -42,9 +43,12 @@ export default function WeakTopics() {
       <NotificationToast />
       <div className="topbar">
         <div className="topbar-title">Weak Topics</div>
-        <button className="btn btn-primary btn-sm" onClick={() => setShowModal(true)}>
-          <Plus size={14} /> Add Weak Topic
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button className="btn btn-primary btn-sm" onClick={() => setShowModal(true)}>
+            <Plus size={14} /> Add Weak Topic
+          </button>
+          <DayNightIcon />
+        </div>
       </div>
 
       <div className="content-area">
