@@ -43,12 +43,12 @@ export default function Layout() {
   }
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: LayoutDashboard, color: 'var(--blue)' },
-    { path: '/overview', label: '55-Day Plan', icon: Target, color: 'var(--green)' },
-    { path: `/day/${todayDay}`, label: `Today (Day ${todayDay})`, icon: Calendar, color: 'var(--cyan)' },
-    { path: '/focus', label: 'Focus Tracker', icon: Eye, color: 'var(--amber)' },
-    { path: '/weak-topics', label: 'Weak Topics', icon: AlertCircle, color: 'var(--pink)' },
-    { path: '/analytics', label: 'Analytics', icon: BarChart3, color: 'var(--teal)' },
+    { path: '/', label: 'Dashboard', icon: LayoutDashboard, color: 'var(--cyan-bright)' },
+    { path: '/overview', label: '55-Day Plan', icon: Target, color: 'var(--green-bright)' },
+    { path: `/day/${todayDay}`, label: `Today (Day ${todayDay})`, icon: Calendar, color: 'var(--blue-bright)' },
+    { path: '/focus', label: 'Focus Tracker', icon: Eye, color: 'var(--amber-bright)' },
+    { path: '/weak-topics', label: 'Weak Topics', icon: AlertCircle, color: 'var(--pink-bright)' },
+    { path: '/analytics', label: 'Analytics', icon: BarChart3, color: 'var(--teal-bright)' },
   ]
 
   const isActive = (path: string) => {
@@ -84,8 +84,9 @@ export default function Layout() {
                   key={item.path}
                   className={`nav-item ${isActive(item.path) ? 'active' : ''}`}
                   onClick={() => navigate(item.path)}
+                  style={isActive(item.path) ? ({ ['--item-color' as any]: item.color, borderColor: `${item.color}40`, color: item.color, boxShadow: `inset 4px 0 0 ${item.color}, 0 0 20px ${item.color}30` } as any) : undefined}
                 >
-                  <Icon size={16} style={{ color: isActive(item.path) ? item.color : undefined }} />
+                  <Icon size={16} style={{ color: isActive(item.path) ? item.color : undefined, filter: isActive(item.path) ? `drop-shadow(0 0 8px ${item.color})` : undefined }} />
                   {item.label}
                 </div>
               )
