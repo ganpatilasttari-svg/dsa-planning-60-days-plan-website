@@ -4,15 +4,15 @@ import { supabase } from '../lib/supabase'
 import { getTodayDayNumber, formatDuration } from '../data/schedule'
 import NotificationToast from '../components/NotificationToast'
 import DayNightIcon from '../components/DayNightIcon'
+import { useCamera } from '../components/CameraContext'
 
 export default function FocusTracker() {
   const todayDay = getTodayDayNumber()
   const videoRef = useRef<HTMLVideoElement>(null)
-  const streamRef = useRef<MediaStream | null>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { stream, enabled: cameraOn, recording, startCamera, stopCamera } = useCamera()
 
   const [isTracking, setIsTracking] = useState(false)
-  const [cameraOn, setCameraOn] = useState(false)
   const [focusedSeconds, setFocusedSeconds] = useState(0)
   const [distractedSeconds, setDistractedSeconds] = useState(0)
   const [awaySeconds, setAwaySeconds] = useState(0)
@@ -20,36 +20,30 @@ export default function FocusTracker() {
   const [lookingAtScreen, setLookingAtScreen] = useState(true)
   const [focusScore, setFocusScore] = useState(0)
   const [sessionStart, setSessionStart] = useState<Date | null>(null)
-  const [error, setError] = useState<string | null>(null)
   const [history, setHistory] = useState<any[]>([])
 
   const trackingRef = useRef(false)
   const focusIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const detectionIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  useEffect(() => { loadHistory(); return () => stopCamera() }, [])
+  useEffect(() => {
+    loadHistory()
+    return () => {
+      if (focusIntervalRef.current) clearInterval(focusIntervalRef.current)
+      if (detectionIntervalRef.current) clearInterval(detectionIntervalRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (videoRef.current && stream) {
+      videoRef.current.srcObject = stream
+      videoRef.current.play().catch(() => {})
+    }
+  }, [stream, cameraOn])
 
   const loadHistory = async () => {
     const { data } = await supabase.from('focus_logs').select('*').order('created_at', { ascending: false }).limit(10)
     setHistory(data || [])
-  }
-
-  const startCamera = async () => {
-    try {
-      setError(null)
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480, facingMode: 'user' }, audio: false })
-      streamRef.current = stream
-      if (videoRef.current) { videoRef.current.srcObject = stream; await videoRef.current.play() }
-      setCameraOn(true)
-    } catch { setError('Could not access camera. Please grant camera permission.') }
-  }
-
-  const stopCamera = () => {
-    if (streamRef.current) { streamRef.current.getTracks().forEach(t => t.stop()); streamRef.current = null }
-    if (videoRef.current) videoRef.current.srcObject = null
-    setCameraOn(false); setIsTracking(false); trackingRef.current = false
-    if (focusIntervalRef.current) clearInterval(focusIntervalRef.current)
-    if (detectionIntervalRef.current) clearInterval(detectionIntervalRef.current)
   }
 
   const startTracking = () => {
@@ -151,14 +145,9 @@ export default function FocusTracker() {
                 </div>
               )}
             </div>
-            {error && (
-              <div style={{ marginTop: '12px', padding: '12px', background: 'rgba(239,68,68,0.1)', border: '1px solid var(--red)', borderRadius: 'var(--r-md)', color: 'var(--red-bright)', fontSize: '12px' }}>
-                <AlertTriangle size={14} style={{ display: 'inline', marginRight: '6px' }} />{error}
-              </div>
-            )}
             <div style={{ marginTop: '16px', display: 'flex', gap: '10px' }}>
               {!isTracking ? (
-                <button className="btn btn-success" onClick={startTracking} disabled={!cameraOn}>
+                <button className="btn btn-success" onClick={startTracking} disabled={!cameraOn || recording}>
                   <Play size={14} /> Start Focus Tracking
                 </button>
               ) : (
@@ -172,6 +161,11 @@ export default function FocusTracker() {
                 </button>
               )}
             </div>
+            {recording && (
+              <div style={{ marginTop: '10px', fontSize: '11px', color: 'var(--amber-bright)' }}>
+                Video recording is active — focus tracking is disabled during recording.
+              </div>
+            )}
           </div>
 
           <div className="card animate-fadeIn">

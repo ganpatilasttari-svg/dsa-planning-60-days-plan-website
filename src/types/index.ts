@@ -59,3 +59,14 @@ export interface DailyNote {
   created_at: string
   updated_at: string
 }
+
+export interface StudyRecording {
+  id: string
+  day_number: number
+  block_name: string
+  topic: string
+  duration_seconds: number
+  note: string
+  file_name: string
+  created_at: string
+}

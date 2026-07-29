@@ -1,12 +1,12 @@
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { Calendar, Code as Code2, Eye, CircleAlert as AlertCircle, ChartBar as BarChart3, LayoutDashboard, Target, BookOpen, Flame, Clock } from 'lucide-react'
+import { Calendar, Code as Code2, Eye, CircleAlert as AlertCircle, ChartBar as BarChart3, LayoutDashboard, Target, BookOpen, Flame, Clock, Sun, Moon } from 'lucide-react'
 import { getTodayDayNumber } from '../data/schedule'
 import NotificationManager from './NotificationManager'
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 
 function useISTClock() {
-  const [time, setTime] = useState('')
+  const [state, setState] = useState({ time: '', isDay: true })
   useEffect(() => {
     const update = () => {
       const now = new Date()
@@ -17,13 +17,13 @@ function useISTClock() {
       const s = ist.getUTCSeconds().toString().padStart(2, '0')
       const period = h >= 12 ? 'PM' : 'AM'
       const h12 = h % 12 === 0 ? 12 : h % 12
-      setTime(`${h12}:${m}:${s} ${period} IST`)
+      setState({ time: `${h12}:${m}:${s} ${period} IST`, isDay: h >= 6 && h < 18 })
     }
     update()
     const interval = setInterval(update, 1000)
     return () => clearInterval(interval)
   }, [])
-  return time
+  return state
 }
 
 export default function Layout() {
@@ -58,7 +58,7 @@ export default function Layout() {
   }
 
   const progressPercent = Math.round((solvedCount / 275) * 100)
-  const istTime = useISTClock()
+  const { time: istTime, isDay } = useISTClock()
 
   return (
     <div className="app-layout">
@@ -105,9 +105,9 @@ export default function Layout() {
           </div>
         </nav>
         <div className="sidebar-footer">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px', justifyContent: 'center' }}>
-            <Clock size={12} color="var(--cyan-bright)" />
-            <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--cyan-bright)', fontFamily: 'var(--font-mono)' }}>{istTime}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px', justifyContent: 'center', padding: '6px 10px', borderRadius: '20px', background: isDay ? 'rgba(255,184,0,0.1)' : 'rgba(91,77,255,0.1)', border: `1px solid ${isDay ? 'rgba(255,184,0,0.3)' : 'rgba(91,77,255,0.3)'}` }}>
+            {isDay ? <Sun size={12} color="var(--amber-bright)" /> : <Moon size={12} color="var(--indigo-bright)" />}
+            <span style={{ fontSize: '11px', fontWeight: 700, color: isDay ? 'var(--amber-bright)' : 'var(--indigo-bright)', fontFamily: 'var(--font-mono)' }}>{istTime}</span>
           </div>
           <div className="sidebar-progress-ring">
             <div className="progress-ring-circle" style={{ ['--p' as any]: `${progressPercent}%` }}>
