@@ -186,7 +186,7 @@ export default function DaySchedule() {
             )}
           </div>
           <div style={{ textAlign: 'right', position: 'relative', zIndex: 1 }}>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: solvedCount === schedule.questions.length ? '#4ade80' : 'var(--text-primary)' }}>
+            <div style={{ fontSize: '28px', fontWeight: 900, color: solvedCount === schedule.questions.length ? '#00e676' : 'var(--text-primary)' }}>
               {solvedCount}<span style={{ fontSize: '16px', color: 'var(--text-tertiary)' }}>/{schedule.questions.length}</span>
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Solved</div>
@@ -197,7 +197,7 @@ export default function DaySchedule() {
         <div className={`recording-panel animate-fadeIn ${recording ? 'recording' : ''}`}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Film size={20} color={recording ? '#f87171' : '#93c5fd'} />
+              <Film size={20} color={recording ? '#ff4060' : '#38bdf8'} />
               <div>
                 <div style={{ fontSize: '15px', fontWeight: 800 }}>Study Session Recording</div>
                 <div style={{ fontSize: '11px', color: 'var(--text-tertiary)' }}>
@@ -225,13 +225,13 @@ export default function DaySchedule() {
           </div>
 
           {cameraError && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(45,15,15,0.60)', backdropFilter: 'blur(14px)', border: '1px solid rgba(239,68,68,0.25)', fontSize: '12px', color: '#f87171' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(255,20,60,0.10)', backdropFilter: 'blur(14px)', border: '1px solid rgba(239,68,68,0.25)', fontSize: '12px', color: '#ff4060' }}>
               {cameraError}
             </div>
           )}
 
           {saveStatus && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(10,26,16,0.60)', backdropFilter: 'blur(14px)', border: '1px solid rgba(34,197,94,0.25)', fontSize: '12px', color: '#4ade80', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(0,180,80,0.10)', backdropFilter: 'blur(14px)', border: '1px solid rgba(34,197,94,0.25)', fontSize: '12px', color: '#00e676', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <CheckCircle size={14} />
               {saveStatus}
               {lastDownloadUrl && (
@@ -272,7 +272,7 @@ export default function DaySchedule() {
         {/* Today's Recording Plan */}
         <div className="card animate-fadeIn" style={{ marginBottom: '16px' }}>
           <div className="section-title">
-            <Disc size={18} style={{ color: '#c4b5fd' }} />
+            <Disc size={18} style={{ color: '#d500f9' }} />
             Today's Recording Plan
           </div>
           <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '12px' }}>
@@ -296,12 +296,12 @@ export default function DaySchedule() {
         {recordings.length > 0 && (
           <div className="card animate-fadeIn" style={{ marginBottom: '16px' }}>
             <div className="section-title">
-              <Film size={18} style={{ color: '#93c5fd' }} />
+              <Film size={18} style={{ color: '#38bdf8' }} />
               Past Recordings ({recordings.length})
             </div>
             {recordings.map(rec => (
               <div key={rec.id} className="recording-history-item">
-                <Film size={16} color="#93c5fd" />
+                <Film size={16} color="#38bdf8" />
                 <div className="flex-1">
                   <div style={{ fontSize: '12px', fontWeight: 700 }}>{rec.block_name}</div>
                   <div style={{ fontSize: '10px', color: 'var(--text-tertiary)' }}>

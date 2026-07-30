@@ -105,7 +105,7 @@ export default function Dashboard() {
         <div className="grid-2">
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Zap size={18} style={{ color: '#fbbf24' }} />
+              <Zap size={18} style={{ color: '#ffab00' }} />
               Current Activity
             </div>
             {currentBlock ? (
@@ -138,7 +138,7 @@ export default function Dashboard() {
 
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Code2 size={18} style={{ color: '#93c5fd' }} />
+              <Code2 size={18} style={{ color: '#38bdf8' }} />
               Today's DSA Questions
             </div>
             <div className="question-list">
@@ -160,7 +160,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     {attempt?.status === 'solved' ? (
-                      <CheckCircle size={18} color="#4ade80" />
+                      <CheckCircle size={18} color="#00e676" />
                     ) : (
                       <ArrowRight size={16} color="var(--text-tertiary)" />
                     )}
@@ -178,7 +178,7 @@ export default function Dashboard() {
 
         <div className="card animate-fadeIn mt-4">
           <div className="section-title">
-            <AlertCircle size={18} style={{ color: '#c4b5fd' }} />
+            <AlertCircle size={18} style={{ color: '#d500f9' }} />
             Weak Topics ({weakTopics.length})
           </div>
           {weakTopics.length > 0 ? (
@@ -186,7 +186,7 @@ export default function Dashboard() {
               {weakTopics.slice(0, 5).map(t => (
                 <div key={t.id} className="weak-topic-item">
                   <AlertCircle size={16} color={
-                    t.severity === 'high' ? '#f87171' : t.severity === 'medium' ? '#fbbf24' : 'var(--text-tertiary)'
+                    t.severity === 'high' ? '#ff4060' : t.severity === 'medium' ? '#ffab00' : 'var(--text-tertiary)'
                   } />
                   <div className="flex-1">
                     <div className="font-700">{t.topic_name}</div>

@@ -262,7 +262,7 @@ export default function CodeEditor() {
               </div>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 {testResults.length > 0 && (
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: accuracy === 100 ? '#4ade80' : '#fbbf24' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: accuracy === 100 ? '#00e676' : '#ffab00' }}>
                     {testResults.filter(r => r.passed).length}/{testResults.length} passed
                   </span>
                 )}
@@ -276,7 +276,7 @@ export default function CodeEditor() {
           <div className="editor-sidebar">
             <div style={{ padding: '20px' }}>
               <div className="section-title" style={{ marginBottom: '12px' }}>
-                <Code2 size={16} style={{ color: '#93c5fd' }} /> Problem
+                <Code2 size={16} style={{ color: '#38bdf8' }} /> Problem
               </div>
               <div style={{ fontSize: '15px', fontWeight: 800, marginBottom: '8px' }}>{question.title}</div>
               <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>

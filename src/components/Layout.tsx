@@ -105,8 +105,8 @@ export default function Layout() {
         </nav>
         <div className="sidebar-footer">
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px', justifyContent: 'center', padding: '6px 10px', borderRadius: '20px', background: 'rgba(59,130,246,0.10)', border: '1px solid rgba(99,149,255,0.18)' }}>
-            {isDay ? <Sun size={12} color="#fbbf24" /> : <Moon size={12} color="#818cf8" />}
-            <span style={{ fontSize: '11px', fontWeight: 700, color: isDay ? '#fbbf24' : '#818cf8', fontFamily: 'var(--font-mono)' }}>{istTime}</span>
+            {isDay ? <Sun size={12} color="#ffab00" /> : <Moon size={12} color="#818cf8" />}
+            <span style={{ fontSize: '11px', fontWeight: 700, color: isDay ? '#ffab00' : '#818cf8', fontFamily: 'var(--font-mono)' }}>{istTime}</span>
           </div>
           <div className="sidebar-progress-ring">
             <div className="progress-ring-circle" style={{ ['--p' as any]: `${progressPercent}%` }}>

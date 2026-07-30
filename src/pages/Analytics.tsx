@@ -82,7 +82,7 @@ export default function Analytics() {
 
         <div className="grid-2">
           <div className="card animate-fadeIn">
-            <div className="section-title"><Award size={18} style={{ color: '#fbbf24' }} /> Problems by Difficulty</div>
+            <div className="section-title"><Award size={18} style={{ color: '#ffab00' }} /> Problems by Difficulty</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {[
                 { label: 'Easy', count: easySolved, color: '#22c55e', badge: 'badge-easy' },
@@ -103,7 +103,7 @@ export default function Analytics() {
           </div>
 
           <div className="card animate-fadeIn">
-            <div className="section-title"><Clock size={18} style={{ color: '#93c5fd' }} /> Focus Time by Day</div>
+            <div className="section-title"><Clock size={18} style={{ color: '#38bdf8' }} /> Focus Time by Day</div>
             {Object.keys(focusByDay).length > 0 ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {Object.entries(focusByDay).sort((a, b) => parseInt(a[0]) - parseInt(b[0])).map(([day, sec]) => (
@@ -143,7 +143,7 @@ export default function Analytics() {
         </div>
 
         <div className="card animate-fadeIn mt-4">
-          <div className="section-title"><TrendingUp size={18} style={{ color: '#c4b5fd' }} /> Phase Progress</div>
+          <div className="section-title"><TrendingUp size={18} style={{ color: '#d500f9' }} /> Phase Progress</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {PHASES.map(phase => {
               const phaseDays = allDays.filter(d => d.phase === phase.number)

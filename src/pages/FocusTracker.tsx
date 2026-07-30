@@ -118,7 +118,7 @@ export default function FocusTracker() {
         <div className="grid-2">
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Camera size={18} style={{ color: '#93c5fd' }} /> Camera Feed
+              <Camera size={18} style={{ color: '#38bdf8' }} /> Camera Feed
             </div>
             <div className="camera-container">
               <video ref={videoRef} className="camera-video" autoPlay playsInline muted />
@@ -162,7 +162,7 @@ export default function FocusTracker() {
               )}
             </div>
             {recording && (
-              <div style={{ marginTop: '10px', fontSize: '11px', color: '#fbbf24' }}>
+              <div style={{ marginTop: '10px', fontSize: '11px', color: '#ffab00' }}>
                 Video recording is active — focus tracking is disabled during recording.
               </div>
             )}
@@ -170,19 +170,19 @@ export default function FocusTracker() {
 
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Zap size={18} style={{ color: '#fbbf24' }} /> Live Focus Stats
+              <Zap size={18} style={{ color: '#ffab00' }} /> Live Focus Stats
             </div>
             <div className="focus-stats mb-4">
               <div className="focus-stat">
-                <div className="focus-stat-value" style={{ color: '#4ade80' }}>{formatDuration(focusedSeconds)}</div>
+                <div className="focus-stat-value" style={{ color: '#00e676' }}>{formatDuration(focusedSeconds)}</div>
                 <div className="focus-stat-label">Focused</div>
               </div>
               <div className="focus-stat">
-                <div className="focus-stat-value" style={{ color: '#fbbf24' }}>{formatDuration(distractedSeconds)}</div>
+                <div className="focus-stat-value" style={{ color: '#ffab00' }}>{formatDuration(distractedSeconds)}</div>
                 <div className="focus-stat-label">Distracted</div>
               </div>
               <div className="focus-stat">
-                <div className="focus-stat-value" style={{ color: '#f87171' }}>{formatDuration(awaySeconds)}</div>
+                <div className="focus-stat-value" style={{ color: '#ff4060' }}>{formatDuration(awaySeconds)}</div>
                 <div className="focus-stat-label">Away</div>
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function FocusTracker() {
             <div style={{ marginBottom: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
                 <span className="text-sm font-700">Focus Score</span>
-                <span className="font-mono font-900" style={{ color: liveFocusScore > 70 ? '#4ade80' : liveFocusScore > 40 ? '#fbbf24' : '#f87171' }}>{liveFocusScore}%</span>
+                <span className="font-mono font-900" style={{ color: liveFocusScore > 70 ? '#00e676' : liveFocusScore > 40 ? '#ffab00' : '#ff4060' }}>{liveFocusScore}%</span>
               </div>
               <div className="focus-bar">
                 <div className="focus-bar-fill" style={{ width: `${liveFocusScore}%`, background: liveFocusScore > 70 ? '#22c55e' : liveFocusScore > 40 ? '#f59e0b' : '#ef4444' }} />
@@ -213,7 +213,7 @@ export default function FocusTracker() {
 
             <div className="card" style={{ background: 'rgba(6,9,22,0.60)', padding: '14px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {faceDetected ? <CheckCircle size={16} color="#4ade80" /> : <AlertTriangle size={16} color="#f87171" />}
+                {faceDetected ? <CheckCircle size={16} color="#00e676" /> : <AlertTriangle size={16} color="#ff4060" />}
                 <span className="text-sm">
                   {faceDetected ? (lookingAtScreen ? 'You are focused and looking at the screen. Keep it up!' : 'Face detected but you seem distracted. Focus on your study material.') : 'No face detected. Make sure you are in front of the camera.'}
                 </span>
@@ -224,13 +224,13 @@ export default function FocusTracker() {
 
         <div className="card animate-fadeIn mt-4">
           <div className="section-title">
-            <Clock size={18} style={{ color: '#93c5fd' }} /> Recent Focus Sessions
+            <Clock size={18} style={{ color: '#38bdf8' }} /> Recent Focus Sessions
           </div>
           {history.length > 0 ? (
             <div className="question-list">
               {history.map((h) => (
                 <div key={h.id} className="weak-topic-item">
-                  <div style={{ width: '44px', height: '44px', borderRadius: 'var(--r-md)', background: h.focus_score > 70 ? 'rgba(10,26,16,0.65)' : h.focus_score > 40 ? 'rgba(45,31,4,0.65)' : 'rgba(45,15,15,0.65)', backdropFilter: 'blur(14px)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 900, color: h.focus_score > 70 ? '#4ade80' : h.focus_score > 40 ? '#fbbf24' : '#f87171' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: 'var(--r-md)', background: h.focus_score > 70 ? 'rgba(0,180,80,0.10)' : h.focus_score > 40 ? 'rgba(255,160,0,0.10)' : 'rgba(255,20,60,0.10)', backdropFilter: 'blur(14px)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 900, color: h.focus_score > 70 ? '#00e676' : h.focus_score > 40 ? '#ffab00' : '#ff4060' }}>
                     {h.focus_score}%
                   </div>
                   <div className="flex-1">
