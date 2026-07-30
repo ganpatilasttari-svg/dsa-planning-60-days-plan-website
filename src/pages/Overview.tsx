@@ -51,7 +51,7 @@ export default function Overview() {
         </div>
 
         <div className="card animate-fadeIn mb-6">
-          <div className="section-title"><Target size={18} style={{ color: 'var(--blue-bright)' }} /> All 55 Days — Click to View Schedule</div>
+          <div className="section-title"><Target size={18} style={{ color: '#93c5fd' }} /> All 55 Days — Click to View Schedule</div>
           <div className="day-grid">
             {allDays.map(day => {
               const completed = isDayCompleted(day.dayNumber)
@@ -67,14 +67,14 @@ export default function Overview() {
         </div>
 
         <div className="card animate-fadeIn">
-          <div className="section-title"><Zap size={18} style={{ color: 'var(--amber-bright)' }} /> Detailed Schedule</div>
+          <div className="section-title"><Zap size={18} style={{ color: '#fbbf24' }} /> Detailed Schedule</div>
           <div className="question-list">
             {allDays.map(day => {
               const isToday = day.dayNumber === todayDay
               const solved = getSolvedCount(day.dayNumber)
               return (
                 <div key={day.dayNumber} className="question-item" style={{ cursor: 'pointer' }} onClick={() => navigate(`/day/${day.dayNumber}`)}>
-                  <div className="question-number" style={{ background: isToday ? 'var(--grad-blue-cyan)' : 'var(--bg-elevated)', color: isToday ? 'white' : 'var(--text-secondary)' }}>
+                  <div className="question-number" style={{ background: isToday ? '#1d4ed8' : '#141828', color: isToday ? 'white' : 'var(--text-secondary)' }}>
                     {day.dayNumber}
                   </div>
                   <div className="question-info">
@@ -88,7 +88,7 @@ export default function Overview() {
                     </div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '13px', fontWeight: 700, color: solved > 0 ? 'var(--green-bright)' : 'var(--text-tertiary)' }}>{solved}/{day.questions.length}</div>
+                    <div style={{ fontSize: '13px', fontWeight: 700, color: solved > 0 ? '#4ade80' : 'var(--text-tertiary)' }}>{solved}/{day.questions.length}</div>
                     {isToday && <span className="badge badge-info" style={{ marginTop: '4px' }}>Today</span>}
                   </div>
                   <ArrowRight size={16} color="var(--text-tertiary)" style={{ marginLeft: '8px' }} />

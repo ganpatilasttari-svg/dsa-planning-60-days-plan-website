@@ -64,7 +64,7 @@ export default function Dashboard() {
       </div>
       <div className="content-area">
         <div className="phase-banner animate-fadeIn">
-          <div className="phase-number" style={{ background: currentPhase?.gradient }}>
+          <div className="phase-number" style={{ background: currentPhase?.gradient || '#1d4ed8' }}>
             {schedule.phase}
           </div>
           <div className="flex-1" style={{ position: 'relative', zIndex: 1 }}>
@@ -105,7 +105,7 @@ export default function Dashboard() {
         <div className="grid-2">
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Zap size={18} style={{ color: 'var(--amber-bright)' }} />
+              <Zap size={18} style={{ color: '#fbbf24' }} />
               Current Activity
             </div>
             {currentBlock ? (
@@ -138,7 +138,7 @@ export default function Dashboard() {
 
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Code2 size={18} style={{ color: 'var(--blue-bright)' }} />
+              <Code2 size={18} style={{ color: '#93c5fd' }} />
               Today's DSA Questions
             </div>
             <div className="question-list">
@@ -160,7 +160,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     {attempt?.status === 'solved' ? (
-                      <CheckCircle size={18} color="var(--green-bright)" />
+                      <CheckCircle size={18} color="#4ade80" />
                     ) : (
                       <ArrowRight size={16} color="var(--text-tertiary)" />
                     )}
@@ -178,7 +178,7 @@ export default function Dashboard() {
 
         <div className="card animate-fadeIn mt-4">
           <div className="section-title">
-            <AlertCircle size={18} style={{ color: 'var(--pink-bright)' }} />
+            <AlertCircle size={18} style={{ color: '#c4b5fd' }} />
             Weak Topics ({weakTopics.length})
           </div>
           {weakTopics.length > 0 ? (
@@ -186,7 +186,7 @@ export default function Dashboard() {
               {weakTopics.slice(0, 5).map(t => (
                 <div key={t.id} className="weak-topic-item">
                   <AlertCircle size={16} color={
-                    t.severity === 'high' ? 'var(--red-bright)' : t.severity === 'medium' ? 'var(--amber-bright)' : 'var(--text-tertiary)'
+                    t.severity === 'high' ? '#f87171' : t.severity === 'medium' ? '#fbbf24' : 'var(--text-tertiary)'
                   } />
                   <div className="flex-1">
                     <div className="font-700">{t.topic_name}</div>

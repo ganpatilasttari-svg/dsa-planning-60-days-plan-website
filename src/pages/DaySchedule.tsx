@@ -9,20 +9,20 @@ import DayNightIcon from '../components/DayNightIcon'
 import { useCamera } from '../components/CameraContext'
 
 const PHASE_GRADIENTS: Record<number, string> = {
-  1: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-  2: 'linear-gradient(135deg, #10b981, #3b82f6)',
-  3: 'linear-gradient(135deg, #f59e0b, #f97316)',
-  4: 'linear-gradient(135deg, #ef4444, #ec4899)',
-  5: 'linear-gradient(135deg, #ec4899, #6366f1)',
+  1: '#1d4ed8',
+  2: '#15803d',
+  3: '#92400e',
+  4: '#991b1b',
+  5: '#3730a3',
 }
 
 const BLOCK_TYPE_COLORS: Record<string, string> = {
-  dsa: 'var(--blue)',
-  fundamentals: 'var(--teal)',
-  revision: 'var(--amber)',
-  'lld-hld': 'var(--pink)',
-  mock: 'var(--red)',
-  flashcard: 'var(--cyan)',
+  dsa: '#1d4ed8',
+  fundamentals: '#0f766e',
+  revision: '#92400e',
+  'lld-hld': '#6b21a8',
+  mock: '#991b1b',
+  flashcard: '#1e40af',
 }
 
 export default function DaySchedule() {
@@ -186,7 +186,7 @@ export default function DaySchedule() {
             )}
           </div>
           <div style={{ textAlign: 'right', position: 'relative', zIndex: 1 }}>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: solvedCount === schedule.questions.length ? 'var(--green-bright)' : 'var(--text-primary)' }}>
+            <div style={{ fontSize: '28px', fontWeight: 900, color: solvedCount === schedule.questions.length ? '#4ade80' : 'var(--text-primary)' }}>
               {solvedCount}<span style={{ fontSize: '16px', color: 'var(--text-tertiary)' }}>/{schedule.questions.length}</span>
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Solved</div>
@@ -197,7 +197,7 @@ export default function DaySchedule() {
         <div className={`recording-panel animate-fadeIn ${recording ? 'recording' : ''}`}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Film size={20} color={recording ? '#ff4d6d' : 'var(--cyan-bright)'} />
+              <Film size={20} color={recording ? '#f87171' : '#93c5fd'} />
               <div>
                 <div style={{ fontSize: '15px', fontWeight: 800 }}>Study Session Recording</div>
                 <div style={{ fontSize: '11px', color: 'var(--text-tertiary)' }}>
@@ -225,13 +225,13 @@ export default function DaySchedule() {
           </div>
 
           {cameraError && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(255,45,85,0.1)', border: '1px solid rgba(255,45,85,0.3)', fontSize: '12px', color: '#ff4d6d' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: '#1a0a0a', border: '1px solid rgba(239,68,68,0.3)', fontSize: '12px', color: '#f87171' }}>
               {cameraError}
             </div>
           )}
 
           {saveStatus && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(0,217,106,0.1)', border: '1px solid rgba(0,217,106,0.3)', fontSize: '12px', color: 'var(--green-bright)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: '#0a1a10', border: '1px solid rgba(34,197,94,0.3)', fontSize: '12px', color: '#4ade80', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <CheckCircle size={14} />
               {saveStatus}
               {lastDownloadUrl && (
@@ -272,7 +272,7 @@ export default function DaySchedule() {
         {/* Today's Recording Plan */}
         <div className="card animate-fadeIn" style={{ marginBottom: '16px' }}>
           <div className="section-title">
-            <Disc size={18} style={{ color: 'var(--pink-bright)' }} />
+            <Disc size={18} style={{ color: '#c4b5fd' }} />
             Today's Recording Plan
           </div>
           <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '12px' }}>
@@ -296,12 +296,12 @@ export default function DaySchedule() {
         {recordings.length > 0 && (
           <div className="card animate-fadeIn" style={{ marginBottom: '16px' }}>
             <div className="section-title">
-              <Film size={18} style={{ color: 'var(--cyan-bright)' }} />
+              <Film size={18} style={{ color: '#93c5fd' }} />
               Past Recordings ({recordings.length})
             </div>
             {recordings.map(rec => (
               <div key={rec.id} className="recording-history-item">
-                <Film size={16} color="var(--cyan-bright)" />
+                <Film size={16} color="#93c5fd" />
                 <div className="flex-1">
                   <div style={{ fontSize: '12px', fontWeight: 700 }}>{rec.block_name}</div>
                   <div style={{ fontSize: '10px', color: 'var(--text-tertiary)' }}>

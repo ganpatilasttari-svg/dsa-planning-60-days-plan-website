@@ -38,11 +38,11 @@ export interface DaySchedule {
 export const PLAN_START_DATE = new Date(2025, 6, 30)
 
 export const PHASES = [
-  { number: 1, name: 'Foundation Rebuild', days: '1-12', color: '#3b82f6', gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)' },
-  { number: 2, name: 'Core DSA Depth', days: '13-37', color: '#10b981', gradient: 'linear-gradient(135deg, #10b981, #3b82f6)' },
-  { number: 3, name: 'Graphs + DP', days: '38-46', color: '#f59e0b', gradient: 'linear-gradient(135deg, #f59e0b, #f97316)' },
-  { number: 4, name: 'Advanced Wrap + LLD/HLD', days: '47-53', color: '#ef4444', gradient: 'linear-gradient(135deg, #ef4444, #ec4899)' },
-  { number: 5, name: 'Interview Ready', days: '54-55', color: '#ec4899', gradient: 'linear-gradient(135deg, #ec4899, #6366f1)' },
+  { number: 1, name: 'Foundation Rebuild', days: '1-12', color: '#1d4ed8', gradient: '#1d4ed8' },
+  { number: 2, name: 'Core DSA Depth', days: '13-37', color: '#15803d', gradient: '#15803d' },
+  { number: 3, name: 'Graphs + DP', days: '38-46', color: '#92400e', gradient: '#92400e' },
+  { number: 4, name: 'Advanced Wrap + LLD/HLD', days: '47-53', color: '#991b1b', gradient: '#991b1b' },
+  { number: 5, name: 'Interview Ready', days: '54-55', color: '#3730a3', gradient: '#3730a3' },
 ]
 
 const FUNDAMENTALS_ROTATION = [

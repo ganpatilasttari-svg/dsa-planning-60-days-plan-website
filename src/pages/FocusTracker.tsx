@@ -118,7 +118,7 @@ export default function FocusTracker() {
         <div className="grid-2">
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Camera size={18} style={{ color: 'var(--blue-bright)' }} /> Camera Feed
+              <Camera size={18} style={{ color: '#93c5fd' }} /> Camera Feed
             </div>
             <div className="camera-container">
               <video ref={videoRef} className="camera-video" autoPlay playsInline muted />
@@ -134,11 +134,11 @@ export default function FocusTracker() {
               )}
               {isTracking && cameraOn && (
                 <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '8px' }}>
-                  <div style={{ padding: '4px 10px', borderRadius: '20px', background: faceDetected ? 'rgba(16,185,129,0.9)' : 'rgba(239,68,68,0.9)', fontSize: '11px', fontWeight: 700, color: 'white' }}>
+                  <div style={{ padding: '4px 10px', borderRadius: '20px', background: faceDetected ? '#15803d' : '#991b1b', fontSize: '11px', fontWeight: 700, color: 'white' }}>
                     {faceDetected ? 'Face Detected' : 'No Face'}
                   </div>
                   {faceDetected && (
-                    <div style={{ padding: '4px 10px', borderRadius: '20px', background: lookingAtScreen ? 'rgba(16,185,129,0.9)' : 'rgba(245,158,11,0.9)', fontSize: '11px', fontWeight: 700, color: 'white' }}>
+                    <div style={{ padding: '4px 10px', borderRadius: '20px', background: lookingAtScreen ? '#15803d' : '#92400e', fontSize: '11px', fontWeight: 700, color: 'white' }}>
                       {lookingAtScreen ? 'Focused' : 'Distracted'}
                     </div>
                   )}
@@ -162,7 +162,7 @@ export default function FocusTracker() {
               )}
             </div>
             {recording && (
-              <div style={{ marginTop: '10px', fontSize: '11px', color: 'var(--amber-bright)' }}>
+              <div style={{ marginTop: '10px', fontSize: '11px', color: '#fbbf24' }}>
                 Video recording is active — focus tracking is disabled during recording.
               </div>
             )}
@@ -170,19 +170,19 @@ export default function FocusTracker() {
 
           <div className="card animate-fadeIn">
             <div className="section-title">
-              <Zap size={18} style={{ color: 'var(--amber-bright)' }} /> Live Focus Stats
+              <Zap size={18} style={{ color: '#fbbf24' }} /> Live Focus Stats
             </div>
             <div className="focus-stats mb-4">
               <div className="focus-stat">
-                <div className="focus-stat-value" style={{ color: 'var(--green-bright)' }}>{formatDuration(focusedSeconds)}</div>
+                <div className="focus-stat-value" style={{ color: '#4ade80' }}>{formatDuration(focusedSeconds)}</div>
                 <div className="focus-stat-label">Focused</div>
               </div>
               <div className="focus-stat">
-                <div className="focus-stat-value" style={{ color: 'var(--amber-bright)' }}>{formatDuration(distractedSeconds)}</div>
+                <div className="focus-stat-value" style={{ color: '#fbbf24' }}>{formatDuration(distractedSeconds)}</div>
                 <div className="focus-stat-label">Distracted</div>
               </div>
               <div className="focus-stat">
-                <div className="focus-stat-value" style={{ color: 'var(--red-bright)' }}>{formatDuration(awaySeconds)}</div>
+                <div className="focus-stat-value" style={{ color: '#f87171' }}>{formatDuration(awaySeconds)}</div>
                 <div className="focus-stat-label">Away</div>
               </div>
             </div>
@@ -190,10 +190,10 @@ export default function FocusTracker() {
             <div style={{ marginBottom: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
                 <span className="text-sm font-700">Focus Score</span>
-                <span className="font-mono font-900" style={{ color: liveFocusScore > 70 ? 'var(--green-bright)' : liveFocusScore > 40 ? 'var(--amber-bright)' : 'var(--red-bright)' }}>{liveFocusScore}%</span>
+                <span className="font-mono font-900" style={{ color: liveFocusScore > 70 ? '#4ade80' : liveFocusScore > 40 ? '#fbbf24' : '#f87171' }}>{liveFocusScore}%</span>
               </div>
               <div className="focus-bar">
-                <div className="focus-bar-fill" style={{ width: `${liveFocusScore}%`, background: liveFocusScore > 70 ? 'var(--green)' : liveFocusScore > 40 ? 'var(--amber)' : 'var(--red)' }} />
+                <div className="focus-bar-fill" style={{ width: `${liveFocusScore}%`, background: liveFocusScore > 70 ? '#22c55e' : liveFocusScore > 40 ? '#f59e0b' : '#ef4444' }} />
               </div>
             </div>
 
@@ -204,16 +204,16 @@ export default function FocusTracker() {
               </div>
               <div className="focus-bar">
                 <div style={{ display: 'flex', height: '100%' }}>
-                  <div style={{ width: `${totalSeconds > 0 ? (focusedSeconds / totalSeconds) * 100 : 0}%`, background: 'var(--green)' }} />
-                  <div style={{ width: `${totalSeconds > 0 ? (distractedSeconds / totalSeconds) * 100 : 0}%`, background: 'var(--amber)' }} />
-                  <div style={{ width: `${totalSeconds > 0 ? (awaySeconds / totalSeconds) * 100 : 0}%`, background: 'var(--red)' }} />
+                  <div style={{ width: `${totalSeconds > 0 ? (focusedSeconds / totalSeconds) * 100 : 0}%`, background: '#22c55e' }} />
+                  <div style={{ width: `${totalSeconds > 0 ? (distractedSeconds / totalSeconds) * 100 : 0}%`, background: '#f59e0b' }} />
+                  <div style={{ width: `${totalSeconds > 0 ? (awaySeconds / totalSeconds) * 100 : 0}%`, background: '#ef4444' }} />
                 </div>
               </div>
             </div>
 
-            <div className="card" style={{ background: 'var(--bg-tertiary)', padding: '14px' }}>
+            <div className="card" style={{ background: '#0a0d1a', padding: '14px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {faceDetected ? <CheckCircle size={16} color="var(--green-bright)" /> : <AlertTriangle size={16} color="var(--red-bright)" />}
+                {faceDetected ? <CheckCircle size={16} color="#4ade80" /> : <AlertTriangle size={16} color="#f87171" />}
                 <span className="text-sm">
                   {faceDetected ? (lookingAtScreen ? 'You are focused and looking at the screen. Keep it up!' : 'Face detected but you seem distracted. Focus on your study material.') : 'No face detected. Make sure you are in front of the camera.'}
                 </span>
@@ -224,13 +224,13 @@ export default function FocusTracker() {
 
         <div className="card animate-fadeIn mt-4">
           <div className="section-title">
-            <Clock size={18} style={{ color: 'var(--cyan-bright)' }} /> Recent Focus Sessions
+            <Clock size={18} style={{ color: '#93c5fd' }} /> Recent Focus Sessions
           </div>
           {history.length > 0 ? (
             <div className="question-list">
               {history.map((h) => (
                 <div key={h.id} className="weak-topic-item">
-                  <div style={{ width: '44px', height: '44px', borderRadius: 'var(--r-md)', background: h.focus_score > 70 ? 'rgba(16,185,129,0.15)' : h.focus_score > 40 ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 900, color: h.focus_score > 70 ? 'var(--green-bright)' : h.focus_score > 40 ? 'var(--amber-bright)' : 'var(--red-bright)' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: 'var(--r-md)', background: h.focus_score > 70 ? '#0a1a10' : h.focus_score > 40 ? '#2d1f04' : '#2d0f0f', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 900, color: h.focus_score > 70 ? '#4ade80' : h.focus_score > 40 ? '#fbbf24' : '#f87171' }}>
                     {h.focus_score}%
                   </div>
                   <div className="flex-1">

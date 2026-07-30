@@ -246,7 +246,7 @@ export default function CodeEditor() {
               )}
               {cameraError && (
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', padding: '8px 12px',
-                  background: 'rgba(239,68,68,0.9)', borderRadius: 'var(--r-md)', fontSize: '12px', color: 'white' }}>
+                  background: '#991b1b', borderRadius: 'var(--r-md)', fontSize: '12px', color: 'white' }}>
                   {cameraError}
                 </div>
               )}
@@ -262,7 +262,7 @@ export default function CodeEditor() {
               </div>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 {testResults.length > 0 && (
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: accuracy === 100 ? 'var(--green-bright)' : 'var(--amber-bright)' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: accuracy === 100 ? '#4ade80' : '#fbbf24' }}>
                     {testResults.filter(r => r.passed).length}/{testResults.length} passed
                   </span>
                 )}
@@ -276,7 +276,7 @@ export default function CodeEditor() {
           <div className="editor-sidebar">
             <div style={{ padding: '20px' }}>
               <div className="section-title" style={{ marginBottom: '12px' }}>
-                <Code2 size={16} style={{ color: 'var(--blue-bright)' }} /> Problem
+                <Code2 size={16} style={{ color: '#93c5fd' }} /> Problem
               </div>
               <div style={{ fontSize: '15px', fontWeight: 800, marginBottom: '8px' }}>{question.title}</div>
               <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
@@ -285,7 +285,7 @@ export default function CodeEditor() {
                 <span className="badge badge-info">{question.topic}</span>
               </div>
               {question.description && (
-                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '12px', padding: '12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--r-md)', borderLeft: '3px solid var(--blue)' }}>
+                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '12px', padding: '12px', background: '#0a0d1a', borderRadius: 'var(--r-md)', borderLeft: '3px solid #1d4ed8' }}>
                   {question.description}
                 </div>
               )}
