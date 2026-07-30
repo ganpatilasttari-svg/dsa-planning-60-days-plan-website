@@ -82,12 +82,12 @@ export default function Analytics() {
 
         <div className="grid-2">
           <div className="card animate-fadeIn">
-            <div className="section-title"><Award size={18} style={{ color: '#ffab00' }} /> Problems by Difficulty</div>
+            <div className="section-title"><Award size={18} style={{ color: '#a0a0a0' }} /> Problems by Difficulty</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {[
-                { label: 'Easy', count: easySolved, color: '#22c55e', badge: 'badge-easy' },
-                { label: 'Medium', count: mediumSolved, color: '#f59e0b', badge: 'badge-medium' },
-                { label: 'Hard', count: hardSolved, color: '#ef4444', badge: 'badge-hard' },
+                { label: 'Easy', count: easySolved, color: '#e8e8e8', badge: 'badge-easy' },
+                { label: 'Medium', count: mediumSolved, color: '#a0a0a0', badge: 'badge-medium' },
+                { label: 'Hard', count: hardSolved, color: '#808080', badge: 'badge-hard' },
               ].map(d => (
                 <div key={d.label}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
@@ -103,14 +103,14 @@ export default function Analytics() {
           </div>
 
           <div className="card animate-fadeIn">
-            <div className="section-title"><Clock size={18} style={{ color: '#38bdf8' }} /> Focus Time by Day</div>
+            <div className="section-title"><Clock size={18} style={{ color: '#ffffff' }} /> Focus Time by Day</div>
             {Object.keys(focusByDay).length > 0 ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {Object.entries(focusByDay).sort((a, b) => parseInt(a[0]) - parseInt(b[0])).map(([day, sec]) => (
                   <div key={day} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span style={{ width: '60px', fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: 600 }}>Day {day}</span>
                     <div className="progress-bar" style={{ flex: 1 }}>
-                      <div className="progress-bar-fill" style={{ width: `${Math.min(100, (sec / 3600) * 100)}%`, background: '#1d4ed8' }} />
+                      <div className="progress-bar-fill" style={{ width: `${Math.min(100, (sec / 3600) * 100)}%`, background: '#ffffff' }} />
                     </div>
                     <span style={{ width: '60px', fontSize: '12px', fontFamily: 'var(--font-mono)', textAlign: 'right', fontWeight: 700 }}>{formatDuration(sec)}</span>
                   </div>
@@ -123,7 +123,7 @@ export default function Analytics() {
         </div>
 
         <div className="card animate-fadeIn mt-4">
-          <div className="section-title"><Target size={18} style={{ color: '#2dd4bf' }} /> Topic-wise Progress</div>
+          <div className="section-title"><Target size={18} style={{ color: '#c0c0c0' }} /> Topic-wise Progress</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '12px' }}>
             {sortedTopics.map(([topic, stats]) => (
               <div key={topic} className="card" style={{ background: 'var(--bg-tertiary)', padding: '14px' }}>
@@ -135,7 +135,7 @@ export default function Analytics() {
                   <span>Solved: {stats.solved}</span><span>Total: {stats.total}</span>
                 </div>
                 <div className="progress-bar">
-                  <div className="progress-bar-fill" style={{ width: `${stats.total > 0 ? (stats.solved / stats.total) * 100 : 0}%`, background: stats.solved === stats.total && stats.total > 0 ? '#22c55e' : '#1d4ed8' }} />
+                  <div className="progress-bar-fill" style={{ width: `${stats.total > 0 ? (stats.solved / stats.total) * 100 : 0}%`, background: stats.solved === stats.total && stats.total > 0 ? '#e8e8e8' : '#ffffff' }} />
                 </div>
               </div>
             ))}
@@ -143,7 +143,7 @@ export default function Analytics() {
         </div>
 
         <div className="card animate-fadeIn mt-4">
-          <div className="section-title"><TrendingUp size={18} style={{ color: '#d500f9' }} /> Phase Progress</div>
+          <div className="section-title"><TrendingUp size={18} style={{ color: '#c0c0c0' }} /> Phase Progress</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {PHASES.map(phase => {
               const phaseDays = allDays.filter(d => d.phase === phase.number)

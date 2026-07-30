@@ -22,7 +22,7 @@ export default function DayNightIcon() {
   const isDay = useIsDaytime()
   return (
     <div className="day-night-icon" title={isDay ? 'Daytime' : 'Nighttime'} style={isDay ? {
-      color: '#ffab00',
+      color: '#a0a0a0',
     } : {
       color: '#818cf8',
     }}>

@@ -17,12 +17,12 @@ const PHASE_GRADIENTS: Record<number, string> = {
 }
 
 const BLOCK_TYPE_COLORS: Record<string, string> = {
-  dsa: '#1d4ed8',
-  fundamentals: '#0f766e',
-  revision: '#92400e',
-  'lld-hld': '#6b21a8',
-  mock: '#991b1b',
-  flashcard: '#1e40af',
+  dsa: '#ffffff',
+  fundamentals: '#c0c0c0',
+  revision: '#a0a0a0',
+  'lld-hld': '#808080',
+  mock: '#707070',
+  flashcard: '#e8e8e8',
 }
 
 export default function DaySchedule() {
@@ -164,7 +164,7 @@ export default function DaySchedule() {
 
       <div className="content-area">
         <div className="phase-banner animate-fadeIn">
-          <div className="phase-number" style={{ background: PHASE_GRADIENTS[schedule.phase] || 'rgba(37,99,235,0.80)' }}>
+          <div className="phase-number" style={{ background: PHASE_GRADIENTS[schedule.phase] || 'rgba(255,255,255,0.80)' }}>
             {schedule.phase}
           </div>
           <div className="flex-1" style={{ position: 'relative', zIndex: 1 }}>
@@ -186,7 +186,7 @@ export default function DaySchedule() {
             )}
           </div>
           <div style={{ textAlign: 'right', position: 'relative', zIndex: 1 }}>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: solvedCount === schedule.questions.length ? '#00e676' : 'var(--text-primary)' }}>
+            <div style={{ fontSize: '28px', fontWeight: 900, color: solvedCount === schedule.questions.length ? '#e8e8e8' : 'var(--text-primary)' }}>
               {solvedCount}<span style={{ fontSize: '16px', color: 'var(--text-tertiary)' }}>/{schedule.questions.length}</span>
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Solved</div>
@@ -197,7 +197,7 @@ export default function DaySchedule() {
         <div className={`recording-panel animate-fadeIn ${recording ? 'recording' : ''}`}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Film size={20} color={recording ? '#ff4060' : '#38bdf8'} />
+              <Film size={20} color={recording ? '#808080' : '#ffffff'} />
               <div>
                 <div style={{ fontSize: '15px', fontWeight: 800 }}>Study Session Recording</div>
                 <div style={{ fontSize: '11px', color: 'var(--text-tertiary)' }}>
@@ -225,13 +225,13 @@ export default function DaySchedule() {
           </div>
 
           {cameraError && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(255,20,60,0.10)', backdropFilter: 'blur(14px)', border: '1px solid rgba(239,68,68,0.25)', fontSize: '12px', color: '#ff4060' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.15)', fontSize: '12px', color: '#808080' }}>
               {cameraError}
             </div>
           )}
 
           {saveStatus && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(0,180,80,0.10)', backdropFilter: 'blur(14px)', border: '1px solid rgba(34,197,94,0.25)', fontSize: '12px', color: '#00e676', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.20)', fontSize: '12px', color: '#e8e8e8', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <CheckCircle size={14} />
               {saveStatus}
               {lastDownloadUrl && (
@@ -272,7 +272,7 @@ export default function DaySchedule() {
         {/* Today's Recording Plan */}
         <div className="card animate-fadeIn" style={{ marginBottom: '16px' }}>
           <div className="section-title">
-            <Disc size={18} style={{ color: '#d500f9' }} />
+            <Disc size={18} style={{ color: '#c0c0c0' }} />
             Today's Recording Plan
           </div>
           <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '12px' }}>
@@ -296,12 +296,12 @@ export default function DaySchedule() {
         {recordings.length > 0 && (
           <div className="card animate-fadeIn" style={{ marginBottom: '16px' }}>
             <div className="section-title">
-              <Film size={18} style={{ color: '#38bdf8' }} />
+              <Film size={18} style={{ color: '#ffffff' }} />
               Past Recordings ({recordings.length})
             </div>
             {recordings.map(rec => (
               <div key={rec.id} className="recording-history-item">
-                <Film size={16} color="#38bdf8" />
+                <Film size={16} color="#ffffff" />
                 <div className="flex-1">
                   <div style={{ fontSize: '12px', fontWeight: 700 }}>{rec.block_name}</div>
                   <div style={{ fontSize: '10px', color: 'var(--text-tertiary)' }}>

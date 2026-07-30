@@ -262,7 +262,7 @@ export default function CodeEditor() {
               </div>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 {testResults.length > 0 && (
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: accuracy === 100 ? '#00e676' : '#ffab00' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: accuracy === 100 ? '#e8e8e8' : '#a0a0a0' }}>
                     {testResults.filter(r => r.passed).length}/{testResults.length} passed
                   </span>
                 )}
@@ -276,7 +276,7 @@ export default function CodeEditor() {
           <div className="editor-sidebar">
             <div style={{ padding: '20px' }}>
               <div className="section-title" style={{ marginBottom: '12px' }}>
-                <Code2 size={16} style={{ color: '#38bdf8' }} /> Problem
+                <Code2 size={16} style={{ color: '#ffffff' }} /> Problem
               </div>
               <div style={{ fontSize: '15px', fontWeight: 800, marginBottom: '8px' }}>{question.title}</div>
               <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
@@ -285,7 +285,7 @@ export default function CodeEditor() {
                 <span className="badge badge-info">{question.topic}</span>
               </div>
               {question.description && (
-                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '12px', padding: '12px', background: 'rgba(6,9,22,0.60)', borderRadius: 'var(--r-md)', borderLeft: '3px solid #2563eb' }}>
+                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '12px', padding: '12px', background: 'rgba(255,255,255,0.04)', borderRadius: 'var(--r-md)', borderLeft: '3px solid #ffffff' }}>
                   {question.description}
                 </div>
               )}
