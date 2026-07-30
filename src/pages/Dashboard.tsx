@@ -64,7 +64,7 @@ export default function Dashboard() {
       </div>
       <div className="content-area">
         <div className="phase-banner animate-fadeIn">
-          <div className="phase-number" style={{ background: currentPhase?.gradient || '#1d4ed8' }}>
+          <div className="phase-number" style={{ background: currentPhase?.gradient || 'rgba(37,99,235,0.80)' }}>
             {schedule.phase}
           </div>
           <div className="flex-1" style={{ position: 'relative', zIndex: 1 }}>

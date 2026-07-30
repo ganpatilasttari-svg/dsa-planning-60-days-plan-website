@@ -9,11 +9,11 @@ import DayNightIcon from '../components/DayNightIcon'
 import { useCamera } from '../components/CameraContext'
 
 const PHASE_GRADIENTS: Record<number, string> = {
-  1: '#1d4ed8',
-  2: '#15803d',
-  3: '#92400e',
-  4: '#991b1b',
-  5: '#3730a3',
+  1: 'rgba(37,99,235,0.85)',
+  2: 'rgba(21,128,61,0.85)',
+  3: 'rgba(146,64,14,0.85)',
+  4: 'rgba(153,27,27,0.85)',
+  5: 'rgba(55,48,163,0.85)',
 }
 
 const BLOCK_TYPE_COLORS: Record<string, string> = {
@@ -164,7 +164,7 @@ export default function DaySchedule() {
 
       <div className="content-area">
         <div className="phase-banner animate-fadeIn">
-          <div className="phase-number" style={{ background: PHASE_GRADIENTS[schedule.phase] }}>
+          <div className="phase-number" style={{ background: PHASE_GRADIENTS[schedule.phase] || 'rgba(37,99,235,0.80)' }}>
             {schedule.phase}
           </div>
           <div className="flex-1" style={{ position: 'relative', zIndex: 1 }}>
@@ -225,13 +225,13 @@ export default function DaySchedule() {
           </div>
 
           {cameraError && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: '#1a0a0a', border: '1px solid rgba(239,68,68,0.3)', fontSize: '12px', color: '#f87171' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(45,15,15,0.60)', backdropFilter: 'blur(14px)', border: '1px solid rgba(239,68,68,0.25)', fontSize: '12px', color: '#f87171' }}>
               {cameraError}
             </div>
           )}
 
           {saveStatus && (
-            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: '#0a1a10', border: '1px solid rgba(34,197,94,0.3)', fontSize: '12px', color: '#4ade80', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ marginTop: '12px', padding: '10px', borderRadius: 'var(--r-md)', background: 'rgba(10,26,16,0.60)', backdropFilter: 'blur(14px)', border: '1px solid rgba(34,197,94,0.25)', fontSize: '12px', color: '#4ade80', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <CheckCircle size={14} />
               {saveStatus}
               {lastDownloadUrl && (

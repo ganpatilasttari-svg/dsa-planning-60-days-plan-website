@@ -92,9 +92,10 @@ export default function FloatingCamera() {
           height: 120,
           borderRadius: '50%',
           overflow: 'hidden',
-          border: '2px solid rgba(255,255,255,0.14)',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.6)',
-          background: '#06080f',
+          border: '1px solid rgba(99,149,255,0.22)',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)',
+          background: 'rgba(6,9,22,0.75)',
+          backdropFilter: 'blur(24px) saturate(160%)',
           position: 'relative',
         }}
       >
@@ -130,7 +131,7 @@ export default function FloatingCamera() {
             height: 8,
             borderRadius: '50%',
             background: '#22c55e',
-            boxShadow: 'none',
+            boxShadow: '0 0 8px rgba(34,197,94,0.5)',
             animation: 'pulse 2s infinite',
           }} />
         )}
@@ -156,13 +157,14 @@ export default function FloatingCamera() {
                 gap: 4,
                 padding: '6px 12px',
                 borderRadius: 20,
-                background: '#1a0a0a',
-                border: '1px solid rgba(239,68,68,0.35)',
+                background: 'rgba(45,15,15,0.70)',
+                border: '1px solid rgba(239,68,68,0.30)',
                 color: '#f87171',
                 fontSize: 10,
                 fontWeight: 800,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
+                backdropFilter: 'blur(14px)',
               }}
             >
               <CameraOff size={11} /> Turn Off
@@ -176,13 +178,14 @@ export default function FloatingCamera() {
                 gap: 4,
                 padding: '6px 12px',
                 borderRadius: 20,
-                background: '#0f1f3d',
-                border: '1px solid rgba(59,130,246,0.35)',
+                background: 'rgba(14,22,56,0.70)',
+                border: '1px solid rgba(99,149,255,0.30)',
                 color: '#93c5fd',
                 fontSize: 10,
                 fontWeight: 800,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
+                backdropFilter: 'blur(14px)',
               }}
             >
               <Camera size={11} /> Enable

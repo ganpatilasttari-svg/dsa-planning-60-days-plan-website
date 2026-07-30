@@ -134,11 +134,11 @@ export default function FocusTracker() {
               )}
               {isTracking && cameraOn && (
                 <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '8px' }}>
-                  <div style={{ padding: '4px 10px', borderRadius: '20px', background: faceDetected ? '#15803d' : '#991b1b', fontSize: '11px', fontWeight: 700, color: 'white' }}>
+                  <div style={{ padding: '4px 10px', borderRadius: '20px', background: faceDetected ? 'rgba(21,128,61,0.70)' : 'rgba(153,27,27,0.70)', backdropFilter: 'blur(14px)', fontSize: '11px', fontWeight: 700, color: 'white' }}>
                     {faceDetected ? 'Face Detected' : 'No Face'}
                   </div>
                   {faceDetected && (
-                    <div style={{ padding: '4px 10px', borderRadius: '20px', background: lookingAtScreen ? '#15803d' : '#92400e', fontSize: '11px', fontWeight: 700, color: 'white' }}>
+                    <div style={{ padding: '4px 10px', borderRadius: '20px', background: lookingAtScreen ? 'rgba(21,128,61,0.70)' : 'rgba(146,64,14,0.70)', backdropFilter: 'blur(14px)', fontSize: '11px', fontWeight: 700, color: 'white' }}>
                       {lookingAtScreen ? 'Focused' : 'Distracted'}
                     </div>
                   )}
@@ -211,7 +211,7 @@ export default function FocusTracker() {
               </div>
             </div>
 
-            <div className="card" style={{ background: '#0a0d1a', padding: '14px' }}>
+            <div className="card" style={{ background: 'rgba(6,9,22,0.60)', padding: '14px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 {faceDetected ? <CheckCircle size={16} color="#4ade80" /> : <AlertTriangle size={16} color="#f87171" />}
                 <span className="text-sm">
@@ -230,7 +230,7 @@ export default function FocusTracker() {
             <div className="question-list">
               {history.map((h) => (
                 <div key={h.id} className="weak-topic-item">
-                  <div style={{ width: '44px', height: '44px', borderRadius: 'var(--r-md)', background: h.focus_score > 70 ? '#0a1a10' : h.focus_score > 40 ? '#2d1f04' : '#2d0f0f', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 900, color: h.focus_score > 70 ? '#4ade80' : h.focus_score > 40 ? '#fbbf24' : '#f87171' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: 'var(--r-md)', background: h.focus_score > 70 ? 'rgba(10,26,16,0.65)' : h.focus_score > 40 ? 'rgba(45,31,4,0.65)' : 'rgba(45,15,15,0.65)', backdropFilter: 'blur(14px)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 900, color: h.focus_score > 70 ? '#4ade80' : h.focus_score > 40 ? '#fbbf24' : '#f87171' }}>
                     {h.focus_score}%
                   </div>
                   <div className="flex-1">

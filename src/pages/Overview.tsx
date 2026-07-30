@@ -74,7 +74,7 @@ export default function Overview() {
               const solved = getSolvedCount(day.dayNumber)
               return (
                 <div key={day.dayNumber} className="question-item" style={{ cursor: 'pointer' }} onClick={() => navigate(`/day/${day.dayNumber}`)}>
-                  <div className="question-number" style={{ background: isToday ? '#1d4ed8' : '#141828', color: isToday ? 'white' : 'var(--text-secondary)' }}>
+                  <div className="question-number" style={{ background: isToday ? 'rgba(59,130,246,0.18)' : 'rgba(59,130,246,0.10)', color: isToday ? 'white' : 'var(--text-secondary)' }}>
                     {day.dayNumber}
                   </div>
                   <div className="question-info">

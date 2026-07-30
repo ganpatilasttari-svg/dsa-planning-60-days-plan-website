@@ -246,7 +246,7 @@ export default function CodeEditor() {
               )}
               {cameraError && (
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', padding: '8px 12px',
-                  background: '#991b1b', borderRadius: 'var(--r-md)', fontSize: '12px', color: 'white' }}>
+                  background: 'rgba(153,27,27,0.80)', backdropFilter: 'blur(14px)', borderRadius: 'var(--r-md)', fontSize: '12px', color: 'white' }}>
                   {cameraError}
                 </div>
               )}
@@ -285,7 +285,7 @@ export default function CodeEditor() {
                 <span className="badge badge-info">{question.topic}</span>
               </div>
               {question.description && (
-                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '12px', padding: '12px', background: '#0a0d1a', borderRadius: 'var(--r-md)', borderLeft: '3px solid #1d4ed8' }}>
+                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '12px', padding: '12px', background: 'rgba(6,9,22,0.60)', borderRadius: 'var(--r-md)', borderLeft: '3px solid #2563eb' }}>
                   {question.description}
                 </div>
               )}

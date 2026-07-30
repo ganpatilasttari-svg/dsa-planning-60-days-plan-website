@@ -22,15 +22,9 @@ export default function DayNightIcon() {
   const isDay = useIsDaytime()
   return (
     <div className="day-night-icon" title={isDay ? 'Daytime' : 'Nighttime'} style={isDay ? {
-      background: '#141828',
-      borderColor: 'rgba(255,255,255,0.12)',
       color: '#fbbf24',
-      boxShadow: 'none',
     } : {
-      background: '#141828',
-      borderColor: 'rgba(255,255,255,0.12)',
       color: '#818cf8',
-      boxShadow: 'none',
     }}>
       {isDay ? <Sun size={16} /> : <Moon size={16} />}
     </div>
